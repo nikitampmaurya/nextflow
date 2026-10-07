@@ -39,7 +39,7 @@ Cohort-level VCF
 - **Nextflow** – workflow management and pipeline orchestration
 - **Samtools** – BAM indexing
 - **GATK HaplotypeCaller** – per-sample variant calling in GVCF mode
-- **GATK GenomicsDBImport** – import multiple GVCFs into a GenomicsDB datastore
+- **GATK GenomicsDBImport** – imports multiple GVCFs into a GenomicsDB datastore
 - **GATK GenotypeGVCFs** – joint genotyping across the cohort
 - **Docker** – provides the software environments used by the pipeline
 
@@ -79,22 +79,20 @@ Runs GATK HaplotypeCaller in GVCF mode:
 -ERC GVCF
 ```
 
-This produces a GVCF for each sample, which is used in the later joint genotyping step.
+This produces a GVCF for each sample for use in the joint genotyping step.
 
 ### `modules/gatk_jointgenotyping.nf`
 
-This module performs two steps:
+Performs two steps:
 
 1. `GenomicsDBImport` – imports the per-sample GVCFs into a GenomicsDB datastore.
 2. `GenotypeGVCFs` – performs joint genotyping and produces a cohort-level VCF.
 
 ### `nextflow.config`
 
-Contains the test profile and paths to the input samplesheet, reference genome, reference indexes, interval file and cohort name.
+Contains the test profile and paths to the input samplesheet, reference files, interval file and cohort name.
 
 ## Reference files
-
-The pipeline uses several files associated with the reference genome:
 
 | File | Purpose |
 |---|---|
@@ -106,37 +104,6 @@ The pipeline uses several files associated with the reference genome:
 ## Data
 
 The input data and reference files used in this project were provided by the **Nextflow for Genomics training course**.
-
-## Input
-
-The test pipeline uses a CSV samplesheet containing the BAM file paths.
-
-Example:
-
-```text
-sample,reads_bam
-sample1,data/sample1.bam
-sample2,data/sample2.bam
-sample3,data/sample3.bam
-```
-
-## Running the test pipeline
-
-Run the pipeline using the `test` profile:
-
-```bash
-nextflow run genomics.nf -profile test
-```
-## Reference files
-
-The pipeline uses several files associated with the reference genome:
-
-| File | Purpose |
-|---|---|
-| `ref.fasta` | Reference genome sequence |
-| `ref.fasta.fai` | FASTA index for efficient access to the reference |
-| `ref.dict` | GATK sequence dictionary containing contig information |
-| `intervals.bed` | Genomic regions to analyse |
 
 ## Input
 
