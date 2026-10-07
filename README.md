@@ -45,7 +45,7 @@ Cohort-level VCF
 - **GATK GenotypeGVCFs** – joint genotyping across the cohort
 - **Docker** – provides the software environments used by the pipeline
 
-## Pipeline structure
+## Repository structure
 
 ```text
 .
