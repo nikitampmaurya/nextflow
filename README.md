@@ -53,13 +53,6 @@ Cohort-level VCF
 │   ├── samtools_index.nf
 │   ├── gatk_haplotypecaller.nf
 │   └── gatk_jointgenotyping.nf
-└── data/
-    ├── samplesheet.csv
-    └── ref/
-        ├── ref.fasta
-        ├── ref.fasta.fai
-        ├── ref.dict
-        └── intervals.bed
 ```
 
 ### `genomics.nf`
@@ -99,6 +92,41 @@ This module performs two steps:
 
 Contains the test profile and paths to the input samplesheet, reference genome, reference indexes, interval file and cohort name.
 
+## Reference files
+
+The pipeline uses several files associated with the reference genome:
+
+| File | Purpose |
+|---|---|
+| `ref.fasta` | Reference genome sequence |
+| `ref.fasta.fai` | FASTA index for efficient access to the reference |
+| `ref.dict` | GATK sequence dictionary containing contig information |
+| `intervals.bed` | Genomic regions to analyse |
+
+## Data
+
+The input data and reference files used in this project were provided by the **Nextflow for Genomics training course**.
+
+## Input
+
+The test pipeline uses a CSV samplesheet containing the BAM file paths.
+
+Example:
+
+```text
+sample,reads_bam
+sample1,data/sample1.bam
+sample2,data/sample2.bam
+sample3,data/sample3.bam
+```
+
+## Running the test pipeline
+
+Run the pipeline using the `test` profile:
+
+```bash
+nextflow run genomics.nf -profile test
+```
 ## Reference files
 
 The pipeline uses several files associated with the reference genome:
