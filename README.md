@@ -1,6 +1,8 @@
 # GATK Variant Calling Pipeline with Nextflow
 
-This project is a **Nextflow-based variant calling pipeline** using GATK and Samtools. It was developed as a training project to understand how to build a reproducible variant calling workflow using Nextflow.
+## Aim:
+
+To build a reproducible **Nextflow-based variant calling pipeline** using GATK and Samtools.
 
 ## Pipeline overview
 
