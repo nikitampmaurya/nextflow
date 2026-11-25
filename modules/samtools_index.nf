@@ -18,5 +18,6 @@ process SAMTOOLS_INDEX {
     script:
     """
     samtools index ${input_bam} // Run Samtools index to create an index (.bai) for the BAM file.
+    // useful converting sam to bam, sorting (genomic co-ordinates) and indexing 
     """
 }
