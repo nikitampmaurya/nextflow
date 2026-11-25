@@ -54,6 +54,8 @@ process GATK_JOINTGENOTYPING {
     // -V gendb:// specifies the GenomicsDB workspace as the input
     // -L specifies the genomic regions to analyse
     // -O specifies the final cohort-level VCF output
+    // overall, it is used to analyse the genetic variants across all three samples together and 
+    // generate one final VCF file containing the variant information for the father, mother and son 
 
 
     """
